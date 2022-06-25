@@ -3,6 +3,10 @@ def solution(citations):
         return 0
 
     citations.sort(reverse=True)
-    for i in range(len(citations)):
-        if i >= citations[i]:
-            return i
+    h = 0
+    for i, citation in enumerate(citations):
+        if citation < i+1:
+            return h
+        else:
+            h = i + 1
+    return h
